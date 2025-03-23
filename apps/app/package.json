@@ -1,0 +1,32 @@
+{
+	"name": "app",
+	"version": "1.0.0",
+	"description": "TanStack, and Turborepo",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"scripts": {
+		"dev": "vinxi dev",
+		"build": "vinxi build",
+		"start": "vinxi start",
+		"lint": "biome lint ./src",
+		"format": "biome format ./src --write"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@tanstack/react-router": "^1.114.27",
+		"@tanstack/react-start": "^1.114.27",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"vinxi": "^0.5.3"
+	},
+	"devDependencies": {
+		"@repo/biome-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@types/react": "^19.0.12",
+		"@types/react-dom": "^19.0.4",
+		"@vitejs/plugin-react": "^4.3.4",
+		"typescript": "^5.8.2",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
+}

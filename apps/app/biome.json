@@ -1,0 +1,7 @@
+{
+	"extends": ["@repo/biome-config/biome"],
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["./src/routeTree.gen.ts"]
+	}
+}
