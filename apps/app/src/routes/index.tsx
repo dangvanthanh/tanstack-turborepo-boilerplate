@@ -1,6 +1,8 @@
-import * as fs from 'node:fs'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
+import * as fs from 'node:fs'
+import { css } from 'styled-system/css'
+import { flex } from 'styled-system/patterns'
 
 const filePath = 'count.txt'
 
@@ -33,15 +35,32 @@ function Home() {
 	const state = Route.useLoaderData()
 
 	return (
-		<button
-			type="button"
-			onClick={() => {
-				updateCount({ data: 1 }).then(() => {
-					router.invalidate()
-				})
-			}}
+		<div
+			className={flex({
+				minH: 'screen',
+				align: 'center',
+				justify: 'center',
+				maxW: '2xl',
+				mx: 'auto',
+			})}
 		>
-			Add 1 to {state}?
-		</button>
+			<button
+				type="button"
+				onClick={() => {
+					updateCount({ data: 1 }).then(() => {
+						router.invalidate()
+					})
+				}}
+				className={css({
+					py: 2,
+					px: 3,
+					borderWidth: 1,
+					borderColor: 'gray.300',
+					rounded: 'sm',
+				})}
+			>
+				Add 1 to {state}?
+			</button>
+		</div>
 	)
 }

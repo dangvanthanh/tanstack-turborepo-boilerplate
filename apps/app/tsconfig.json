@@ -9,5 +9,6 @@
 			"~/*": ["./src/*"]
 		},
 		"noEmit": true
-	}
+	},
+	"include": ["src", "styled-system"]
 }

@@ -5,6 +5,7 @@ import {
 	createRootRoute,
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import styles from '../styles/app.css?url'
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -13,6 +14,7 @@ export const Route = createRootRoute({
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{ title: 'TanStack, and Turborepo' },
 		],
+		links: [{ rel: 'stylesheet', href: styles }],
 	}),
 	component: RootComponent,
 })

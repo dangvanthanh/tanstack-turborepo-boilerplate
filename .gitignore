@@ -140,3 +140,7 @@ dist
 
 # Vercel
 .vercel
+
+## Panda
+styled-system
+styled-system-studio
