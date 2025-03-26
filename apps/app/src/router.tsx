@@ -7,7 +7,7 @@ export function createRouter() {
 	const router = createTanStackRouter({
 		routeTree,
 		defaultErrorComponent: DefaultCatchBoundary,
-		defaultNotFoundComponent: NotFound,
+		defaultNotFoundComponent: () => <NotFound />,
 		scrollRestoration: true,
 	})
 
