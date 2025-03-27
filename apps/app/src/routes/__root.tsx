@@ -5,8 +5,8 @@ import {
 	createRootRoute,
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { Header } from '~/components/layout/header'
 import styles from '../styles/app.css?url'
-import { Header } from '~/components/shared/header'
 
 export const Route = createRootRoute({
 	head: () => ({

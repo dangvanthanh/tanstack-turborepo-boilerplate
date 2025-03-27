@@ -3,6 +3,7 @@ import { createFileRoute, Link, redirect } from '@tanstack/react-router'
 import { allPosts } from 'content-collections'
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
+import { seo } from '~/lib'
 
 export const Route = createFileRoute('/blog/$slug')({
 	component: RouteComponent,
@@ -19,6 +20,16 @@ export const Route = createFileRoute('/blog/$slug')({
 
 		return { post }
 	},
+	head: ({ loaderData }) => ({
+		meta: loaderData
+			? [
+					...seo({
+						title: loaderData.post.title,
+						description: loaderData.post.summary.slice(0, 160),
+					}),
+				]
+			: [],
+	}),
 })
 
 function RouteComponent() {
@@ -52,8 +63,8 @@ function RouteComponent() {
 					>
 						<title>Chevron Left</title>
 						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 							d="M15.75 19.5 8.25 12l7.5-7.5"
 						/>
 					</svg>

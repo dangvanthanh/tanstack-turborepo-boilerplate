@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { allPosts } from 'content-collections'
 import { css } from 'styled-system/css'
-import { formatDate } from '~/lib'
+import { formatDate, sortedPosts } from '~/lib'
 
 export const Route = createFileRoute('/blog/')({
 	component: RouteComponent,
@@ -37,7 +36,7 @@ function RouteComponent() {
 				</p>
 			</div>
 			<ul className={css({ spaceY: 12, mt: 12 })}>
-				{allPosts.map((post) => (
+				{sortedPosts.map((post) => (
 					<li key={post.title}>
 						<time className={css({ color: 'neutral.500' })}>
 							{formatDate(post.publishedAt)}
