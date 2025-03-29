@@ -3,6 +3,9 @@ import { css } from 'styled-system/css'
 import { formatDate, sortedPosts } from '~/lib'
 
 export const Route = createFileRoute('/blog/')({
+	head: () => ({
+		meta: [{ title: 'Blog - TanStack, and Turborepo Boilerplate' }],
+	}),
 	component: RouteComponent,
 })
 

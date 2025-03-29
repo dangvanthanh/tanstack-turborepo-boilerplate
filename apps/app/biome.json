@@ -1,7 +1,11 @@
 {
 	"extends": ["@repo/biome-config/biome"],
 	"files": {
-		"ignoreUnknown": false,
-		"ignore": ["./src/routeTree.gen.ts"]
+		"includes": ["!**/routeTree.gen.ts"]
+	},
+	"linter": {
+		"domains": {
+			"react": "recommended"
+		}
 	}
 }

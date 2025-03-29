@@ -64,7 +64,7 @@ const posts = defineCollection({
 				],
 			],
 		})
-		
+
 		return {
 			...document,
 			mdx,
