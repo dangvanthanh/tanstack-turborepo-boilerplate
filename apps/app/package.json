@@ -7,37 +7,38 @@
 	"type": "module",
 	"scripts": {
 		"prepare": "panda codegen",
-		"dev": "vinxi dev",
-		"build": "vinxi build",
-		"start": "vinxi start",
+		"dev": "vite dev",
+		"build": "vite build",
+		"start": "vite start",
 		"lint": "biome lint ./src",
 		"format": "biome format ./src --write"
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@tanstack/react-router": "^1.114.29",
-		"@tanstack/react-start": "^1.114.29",
+		"@tanstack/react-router": "^1.128.4",
+		"@tanstack/react-start": "^1.128.5",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
-		"vinxi": "^0.5.7"
+		"vite": "^7.0.5"
 	},
 	"devDependencies": {
-		"@content-collections/core": "^0.8.2",
+		"@content-collections/core": "^0.10.0",
 		"@content-collections/mdx": "^0.2.2",
-		"@content-collections/vinxi": "^0.1.0",
+		"@content-collections/vite": "^0.2.6",
 		"@pandacss/dev": "^0.54.0",
 		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
-		"@shikijs/transformers": "^3.7.0",
+		"@shikijs/transformers": "^3.8.1",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
-		"@vitejs/plugin-react": "^4.6.0",
+		"@vitejs/plugin-react": "^4.7.0",
 		"postcss": "^8.5.6",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-pretty-code": "^0.14.1",
 		"rehype-slug": "^6.0.0",
 		"remark-gfm": "^4.0.1",
 		"typescript": "^5.8.3",
-		"vite-tsconfig-paths": "^5.1.4"
+		"vite-tsconfig-paths": "^5.1.4",
+		"zod": "^4.0.5"
 	}
 }

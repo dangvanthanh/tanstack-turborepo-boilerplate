@@ -35,7 +35,7 @@ const posts = defineCollection({
 								matchAlgorithm: 'v3',
 							}),
 						],
-						// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+						// biome-ignore lint/suspicious/noExplicitAny: any
 						onVisitLine(node: any) {
 							// Prevent lines from collapsing in `display: grid` mode, and allow empty
 							// lines to be copy/pasted
@@ -43,11 +43,11 @@ const posts = defineCollection({
 								node.children = [{ type: 'text', value: ' ' }]
 							}
 						},
-						// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+						// biome-ignore lint/suspicious/noExplicitAny: any
 						onVisitHighlightedLine(node: any) {
 							node.properties.className.push('line--highlighted')
 						},
-						// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+						// biome-ignore lint/suspicious/noExplicitAny: any
 						onVisitHighlightedWord(node: any) {
 							node.properties.className = ['word--highlighted']
 						},
@@ -72,6 +72,8 @@ const posts = defineCollection({
 	},
 })
 
+
+
 export default defineConfig({
-	collections: [posts],
-})
+  collections: [posts],
+});

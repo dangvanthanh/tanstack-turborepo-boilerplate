@@ -1,8 +1,8 @@
 import {
+	createRootRoute,
 	HeadContent,
 	Outlet,
 	Scripts,
-	createRootRoute,
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import { Header } from '~/components/layout/header'
