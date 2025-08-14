@@ -1,15 +1,25 @@
 {
 	"extends": "@repo/typescript-config/react-library.json",
 	"compilerOptions": {
+		"jsx": "react-jsx",
 		"moduleResolution": "Bundler",
 		"module": "ESNext",
 		"target": "ES2022",
+		"skipLibCheck": true,
+		"strictNullChecks": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["./src/*"],
-			"content-collections": ["./.content-collections/generated"]
+			"~/*": [
+				"./src/*"
+			],
+			"content-collections": [
+				"./.content-collections/generated"
+			]
 		},
 		"noEmit": true
 	},
-	"include": ["src", "styled-system"]
+	"include": [
+		"src",
+		"styled-system"
+	]
 }
