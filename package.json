@@ -12,10 +12,10 @@
 		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.5",
-		"turbo": "^2.5.5"
+		"lint-staged": "^16.2.0",
+		"turbo": "^2.5.8"
 	},
-	"packageManager": "bun@1.2.20",
+	"packageManager": "bun@1.2.22",
 	"engines": {
 		"node": ">=20"
 	},
@@ -30,6 +30,6 @@
 		]
 	},
 	"dependencies": {
-		"caniuse-lite": "^1.0.30001734"
+		"caniuse-lite": "^1.0.30001743"
 	}
 }

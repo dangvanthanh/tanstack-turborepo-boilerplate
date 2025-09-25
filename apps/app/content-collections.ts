@@ -9,12 +9,13 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import { z } from 'zod'
 
 const posts = defineCollection({
 	name: 'posts',
 	directory: 'content/posts',
 	include: '*.mdx',
-	schema: (z) => ({
+	schema: z.object({
 		title: z.string(),
 		summary: z.string(),
 		publishedAt: z.string().date(),
@@ -72,8 +73,6 @@ const posts = defineCollection({
 	},
 })
 
-
-
 export default defineConfig({
-  collections: [posts],
-});
+	collections: [posts],
+})
