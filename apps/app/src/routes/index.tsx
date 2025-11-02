@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { css } from 'styled-system/css'
+import { createFileRoute } from '@tanstack/solid-router'
+import { css } from '../../styled-system/css'
 
 export const Route = createFileRoute('/')({
 	component: Home,
@@ -8,27 +8,27 @@ export const Route = createFileRoute('/')({
 function Home() {
 	return (
 		<div
-			className={css({
-				maxW: '2xl',
+			class={css({
+				maxW: '3xl',
 				mx: 'auto',
 				px: { base: 4, md: 6, lg: 8 },
 			})}
 		>
-			<div className={css({ py: 12 })}>
+			<div class={css({ py: 12 })}>
 				<h1
-					className={css({
+					class={css({
 						fontSize: '4xl',
 						fontWeight: 700,
 						textAlign: 'center',
 						textWrap: 'pretty',
 					})}
 				>
-					Tanstack, and Turborepo Boilerplate
+					Tanstack, Solid and Turborepo Boilerplate
 				</h1>
-				<div className={css({ textAlign: 'center' })}>
-					<Link
-						to="/blog"
-						className={css({
+				<div class={css({ textAlign: 'center' })}>
+					<a
+						href="/blog"
+						class={css({
 							display: 'inline-block',
 							bg: 'neutral.900',
 							color: 'white',
@@ -39,7 +39,7 @@ function Home() {
 						})}
 					>
 						Go to Blog
-					</Link>
+					</a>
 				</div>
 			</div>
 		</div>

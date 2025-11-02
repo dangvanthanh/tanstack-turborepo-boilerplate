@@ -1,11 +1,13 @@
 {
-	"extends": ["@repo/biome-config/biome"],
+	"extends": [
+		"@repo/biome-config/biome"
+	],
 	"files": {
-		"includes": ["!**/routeTree.gen.ts"]
-	},
-	"linter": {
-		"domains": {
-			"react": "recommended"
-		}
+		"includes": [
+			"!**/routeTree.gen.ts",
+			".vscode/*",
+			"index.html",
+			"vite.config.js"
+		]
 	}
 }

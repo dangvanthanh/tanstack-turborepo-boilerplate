@@ -1,16 +1,18 @@
-import contentCollections from "@content-collections/vite";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import { defineConfig } from "vite";
-import tsConfigPaths from "vite-tsconfig-paths";
-import viteReact from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import viteTsConfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
+
+import { tanstackStart } from '@tanstack/solid-start/plugin/vite'
+import solidPlugin from 'vite-plugin-solid'
 
 export default defineConfig({
-	plugins: [
-		contentCollections(),
-		tsConfigPaths({
-			projects: ["./tsconfig.json"],
-		}),
-		tanstackStart({ customViteReactPlugin: true }),
-		viteReact(),
-	],
-});
+  plugins: [
+    // this is the plugin that enables path aliases
+    viteTsConfigPaths({
+      projects: ['./tsconfig.json'],
+    }),
+    tailwindcss(),
+    tanstackStart(),
+    solidPlugin({ ssr: true }),
+  ],
+})

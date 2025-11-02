@@ -8,89 +8,48 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from '@tanstack/react-start/server'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
-import { ServerRoute as ApiHelloServerRouteImport } from './routes/api/hello'
-
-const rootServerRouteImport = createServerRootRoute()
+import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
+const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
+  id: '/demo/start/server-funcs',
+  path: '/demo/start/server-funcs',
   getParentRoute: () => rootRouteImport,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiHelloServerRoute = ApiHelloServerRouteImport.update({
-  id: '/api/hello',
-  path: '/api/hello',
-  getParentRoute: () => rootServerRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog': typeof BlogIndexRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog': typeof BlogIndexRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog/': typeof BlogIndexRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog/$slug' | '/blog'
+  fullPaths: '/' | '/demo/start/server-funcs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog/$slug' | '/blog'
-  id: '__root__' | '/' | '/blog/$slug' | '/blog/'
+  to: '/' | '/demo/start/server-funcs'
+  id: '__root__' | '/' | '/demo/start/server-funcs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
-}
-export interface FileServerRoutesByFullPath {
-  '/api/hello': typeof ApiHelloServerRoute
-}
-export interface FileServerRoutesByTo {
-  '/api/hello': typeof ApiHelloServerRoute
-}
-export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport
-  '/api/hello': typeof ApiHelloServerRoute
-}
-export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/hello'
-  fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/hello'
-  id: '__root__' | '/api/hello'
-  fileServerRoutesById: FileServerRoutesById
-}
-export interface RootServerRouteChildren {
-  ApiHelloServerRoute: typeof ApiHelloServerRoute
+  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
 }
 
-declare module '@tanstack/react-router' {
+declare module '@tanstack/solid-router' {
   interface FileRoutesByPath {
     '/': {
       id: '/'
@@ -99,45 +58,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogIndexRouteImport
+    '/demo/start/server-funcs': {
+      id: '/demo/start/server-funcs'
+      path: '/demo/start/server-funcs'
+      fullPath: '/demo/start/server-funcs'
+      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
-}
-declare module '@tanstack/react-start/server' {
-  interface ServerFileRoutesByPath {
-    '/api/hello': {
-      id: '/api/hello'
-      path: '/api/hello'
-      fullPath: '/api/hello'
-      preLoaderRoute: typeof ApiHelloServerRouteImport
-      parentRoute: typeof rootServerRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
+  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiHelloServerRoute: ApiHelloServerRoute,
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/solid-start'
+declare module '@tanstack/solid-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
 }
-export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>()
