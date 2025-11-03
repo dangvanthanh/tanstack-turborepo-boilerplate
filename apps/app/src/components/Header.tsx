@@ -1,6 +1,6 @@
 import { For } from 'solid-js'
-import { css } from '../../styled-system/css'
-import { flex } from '../../styled-system/patterns'
+import { css } from 'styled-system/css'
+import { flex } from 'styled-system/patterns'
 
 export default function Header() {
 	const navs = [
@@ -45,12 +45,10 @@ export default function Header() {
 									class={css({
 										color: 'neutral.500',
 										fontSize: 'xs',
-										bg: 'neutral.100',
+										//bg: 'neutral.100',
 										py: 1.5,
 										px: 3,
 										rounded: 'xs',
-										cursor: 'default',
-										pointerEvents: 'none',
 									})}
 								>
 									{name}

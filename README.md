@@ -5,6 +5,7 @@
 # Technologies
 
 - [TanStack](https://tanstack.com/start/latest)
+- [SolidJS](https://www.solidjs.com/)
 - [Turborepo](https://turbo.build/)
 - [Content Collections](https://www.content-collections.dev/)
 - [PandaCSS](https://panda-css.com/)

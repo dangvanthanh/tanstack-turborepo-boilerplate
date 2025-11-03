@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/solid-router'
-import { css } from '../../styled-system/css'
+import { css } from 'styled-system/css'
 
 export const Route = createFileRoute('/')({
 	component: Home,

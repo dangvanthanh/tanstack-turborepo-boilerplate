@@ -24,10 +24,13 @@
 		"vite-tsconfig-paths": "^5.1.4"
 	},
 	"devDependencies": {
+		"@content-collections/core": "^0.12.0",
+		"@content-collections/vite": "^0.2.7",
 		"@pandacss/dev": "^1.4.3",
 		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"vite": "^7.1.12",
-		"vite-plugin-solid": "^2.11.10"
+		"vite-plugin-solid": "^2.11.10",
+		"zod": "^4.1.12"
 	}
 }
