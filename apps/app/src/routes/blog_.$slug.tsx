@@ -107,9 +107,8 @@ function PostComponent() {
 							mt: 2,
 						},
 					})}
-				>
-					{post().summary}
-				</div>
+					innerHTML={post().html}
+				/>
 			</div>
 		</div>
 	)
