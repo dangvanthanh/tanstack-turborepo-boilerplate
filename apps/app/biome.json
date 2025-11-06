@@ -5,9 +5,10 @@
 	"files": {
 		"includes": [
 			"!**/routeTree.gen.ts",
+			"!dist",
 			".vscode/*",
 			"index.html",
-			"vite.config.js"
+			"vite.config.ts"
 		]
 	}
 }
