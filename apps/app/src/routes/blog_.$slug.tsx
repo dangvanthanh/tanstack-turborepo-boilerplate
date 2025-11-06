@@ -38,7 +38,7 @@ function PostComponent() {
 	return (
 		<div
 			class={css({
-				maxW: '2xl',
+				maxW: '3xl',
 				mx: 'auto',
 				px: { base: 4, md: 6, lg: 8 },
 			})}
