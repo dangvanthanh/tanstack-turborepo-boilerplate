@@ -38,7 +38,7 @@ function BlogComponent() {
 					Discover expert tips to grow your business!
 				</p>
 			</div>
-			<ul class={css({ spaceY: 12, mt: 12 })}>
+			<ul class={css({ spaceY: 12, my: 12 })}>
 				{[...posts()].map((post) => (
 					<li>
 						<time class={css({ color: 'neutral.500' })}>

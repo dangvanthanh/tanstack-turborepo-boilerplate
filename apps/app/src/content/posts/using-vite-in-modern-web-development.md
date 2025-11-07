@@ -1,7 +1,7 @@
 ---
 title: "Using Vite in Modern Web Development"
 summary: "Vite revolutionizes web dev with lightning-fast builds, instant HMR & optimized production output. Leverages ES modules for unmatched speed."
-publishedAt: "2025-07-18"
+publishedAt: "07/18/2025"
 ---
 
 ## Introduction

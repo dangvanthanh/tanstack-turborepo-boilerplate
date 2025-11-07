@@ -1,11 +1,15 @@
-import { createFileRoute } from '@tanstack/solid-router'
+import { createFileRoute, Link } from '@tanstack/solid-router'
 import { css } from 'styled-system/css'
+import { formatDate, sortedPosts } from '~/lib'
 
 export const Route = createFileRoute('/')({
+	loader: async () => sortedPosts,
 	component: Home,
 })
 
 function Home() {
+	const posts = Route.useLoaderData()
+
 	return (
 		<div
 			class={css({
@@ -14,34 +18,46 @@ function Home() {
 				px: { base: 4, md: 6, lg: 8 },
 			})}
 		>
-			<div class={css({ py: 12 })}>
+			<div
+				class={css({
+					py: 12,
+					borderBottomWidth: 1,
+					borderColor: 'neutral.200',
+				})}
+			>
 				<h1
 					class={css({
 						fontSize: '4xl',
-						fontWeight: 700,
-						textAlign: 'center',
-						textWrap: 'pretty',
+						fontWeight: 900,
+						lineHeight: 'tight',
 					})}
 				>
-					Tanstack, Solid and Turborepo Boilerplate
+					Latest Posts
 				</h1>
-				<div class={css({ textAlign: 'center' })}>
-					<a
-						href="/blog"
-						class={css({
-							display: 'inline-block',
-							bg: 'neutral.900',
-							color: 'white',
-							py: 2,
-							px: 3,
-							rounded: 'sm',
-							mt: 2,
-						})}
-					>
-						Go to Blog
-					</a>
-				</div>
 			</div>
+			<ul class={css({ spaceY: 6, mt: 6 })}>
+				{[...posts()].map((post) => (
+					<li>
+						<time class={css({ color: 'neutral.500' })}>
+							{formatDate(post.publishedAt)}
+						</time>
+						<h3 class={css({ fontSize: 'lg', fontWeight: 600, my: 2 })}>
+							<Link
+								to="/blog/$slug"
+								params={{
+									slug: post._meta.path,
+								}}
+								class={css({
+									color: 'neutral.700',
+									_hover: { color: 'neutral.500' },
+								})}
+							>
+								{post.title}
+							</Link>
+						</h3>
+					</li>
+				))}
+			</ul>
 		</div>
 	)
 }

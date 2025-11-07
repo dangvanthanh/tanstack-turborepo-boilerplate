@@ -35,7 +35,7 @@ export default function Header() {
 							fontSize: 'sm',
 						})}
 					>
-						TT
+						TST
 					</a>
 					<nav class={flex({ align: 'center', gap: 4 })}>
 						<For each={navs}>

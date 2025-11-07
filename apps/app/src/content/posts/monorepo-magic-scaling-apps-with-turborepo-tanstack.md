@@ -1,7 +1,7 @@
 ---
 title: "Monorepo Magic: Scaling Apps with Turborepo & TanStack"
 summary: "Unlock the secrets to scalable React development with our deep dive into Turborepo and TanStack. We'll show you how Turborepo's intelligent caching and parallel execution works seamlessly with TanStack's ecosystem (Query, Router, Table) to create maintainable, high-performance applications that grow with your business needs."
-publishedAt: "2025-03-26"
+publishedAt: "03/26/2025"
 ---
 
 ## Intro

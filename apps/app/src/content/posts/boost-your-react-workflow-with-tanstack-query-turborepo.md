@@ -1,7 +1,7 @@
 ---
 title: "Boost Your React Workflow with TanStack Query & Turborepo"
 summary: "Discover how combining TanStack Query's powerful data fetching capabilities with Turborepo's blazing-fast monorepo builds can revolutionize your React development. Learn how this dynamic duo reduces boilerplate code, optimizes performance, and speeds up your CI/CD pipeline - perfect for both small projects and enterprise-scale applications."
-publishedAt: "2025-03-24"
+publishedAt: "03/24/2025"
 ---
 
 ## Intro

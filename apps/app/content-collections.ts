@@ -1,5 +1,6 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMarkdown } from '@content-collections/markdown'
+import rehypePrettyCode from 'rehype-pretty-code'
 import { z } from 'zod'
 
 const posts = defineCollection({
@@ -12,7 +13,9 @@ const posts = defineCollection({
 		publishedAt: z.string(),
 	}),
 	transform: async (document, context) => {
-		const html = await compileMarkdown(context, document)
+		const html = await compileMarkdown(context, document, {
+			rehypePlugins: [[rehypePrettyCode, { theme: 'catppuccin-latte' }]],
+		})
 		return {
 			...document,
 			html,

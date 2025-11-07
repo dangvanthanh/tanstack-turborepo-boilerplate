@@ -92,6 +92,10 @@ function PostComponent() {
 							fontSize: '2xl',
 							fontWeight: 600,
 						},
+						'& h3': {
+							fontSize: 'xl',
+							fontWeight: 600,
+						},
 						'& ul': {
 							listStyle: 'disc',
 							pl: 4,
@@ -105,6 +109,13 @@ function PostComponent() {
 						},
 						'& ol > li + li': {
 							mt: 2,
+						},
+						'& pre': {
+							padding: 4,
+							rounded: 'md',
+						},
+						'& code': {
+							fontSize: '14px',
 						},
 					})}
 					innerHTML={post().html}
