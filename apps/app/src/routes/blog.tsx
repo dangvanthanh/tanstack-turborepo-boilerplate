@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/solid-router'
 import { css } from 'styled-system/css'
 import { formatDate, sortedPosts } from '~/lib'
+import { For } from 'solid-js'
 
 export const Route = createFileRoute('/blog')({
 	loader: async () => sortedPosts,
@@ -39,28 +40,30 @@ function BlogComponent() {
 				</p>
 			</div>
 			<ul class={css({ spaceY: 12, my: 12 })}>
-				{[...posts()].map((post) => (
-					<li>
-						<time class={css({ color: 'neutral.500' })}>
-							{formatDate(post.publishedAt)}
-						</time>
-						<h3 class={css({ fontSize: 'lg', fontWeight: 600, my: 2 })}>
-							<Link
-								to="/blog/$slug"
-								params={{
-									slug: post._meta.path,
-								}}
-								class={css({
-									color: 'neutral.700',
-									_hover: { color: 'neutral.500' },
-								})}
-							>
-								{post.title}
-							</Link>
-						</h3>
-						<div class={css({ color: 'neutral.700' })}>{post.summary}</div>
-					</li>
-				))}
+				<For each={posts()}>
+					{(post) => (
+						<li>
+							<time class={css({ color: 'neutral.500' })}>
+								{formatDate(post.publishedAt)}
+							</time>
+							<h3 class={css({ fontSize: 'lg', fontWeight: 600, my: 2 })}>
+								<Link
+									to="/blog/$slug"
+									params={{
+										slug: post._meta.path,
+									}}
+									class={css({
+										color: 'neutral.700',
+										_hover: { color: 'neutral.500' },
+									})}
+								>
+									{post.title}
+								</Link>
+							</h3>
+							<div class={css({ color: 'neutral.700' })}>{post.summary}</div>
+						</li>
+					)}
+				</For>
 			</ul>
 		</div>
 	)

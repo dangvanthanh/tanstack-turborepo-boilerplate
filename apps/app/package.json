@@ -14,26 +14,26 @@
 		"start": "node .output/server/index.mjs"
 	},
 	"dependencies": {
-		"@tanstack/router-plugin": "^1.134.14",
-		"@tanstack/solid-router": "^1.134.13",
-		"@tanstack/solid-router-devtools": "^1.134.13",
-		"@tanstack/solid-start": "^1.134.14",
-		"lucide-solid": "^0.552.0",
-		"nitro": "^3.0.1-alpha.0",
-		"solid-js": "^1.9.10",
-		"vite": "^7.2.1",
-		"vite-tsconfig-paths": "^5.1.4"
+		"@tanstack/router-plugin": "^1.167.12",
+		"@tanstack/solid-router": "^1.168.9",
+		"@tanstack/solid-router-devtools": "^1.166.11",
+		"@tanstack/solid-start": "^1.167.15",
+		"lucide-solid": "^1.7.0",
+		"nitro": "^3.0.260311-beta",
+		"solid-js": "^1.9.12",
+		"vite": "^8.0.3",
+		"vite-tsconfig-paths": "^6.1.1"
 	},
 	"devDependencies": {
-		"@content-collections/core": "^0.12.0",
+		"@content-collections/core": "^0.14.3",
 		"@content-collections/markdown": "^0.1.4",
-		"@content-collections/vite": "^0.2.7",
-		"@pandacss/dev": "^1.4.3",
+		"@content-collections/vite": "^0.2.9",
+		"@pandacss/dev": "^1.9.1",
 		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
-		"rehype-pretty-code": "^0.14.1",
-		"vite": "^7.2.1",
-		"vite-plugin-solid": "^2.11.10",
-		"zod": "^4.1.12"
+		"rehype-pretty-code": "^0.14.3",
+		"vite": "^8.0.3",
+		"vite-plugin-solid": "^2.11.11",
+		"zod": "^4.3.6"
 	}
 }
