@@ -1,8 +1,7 @@
-import { allPosts } from 'content-collections'
+import { allPosts } from "content-collections";
 
 export const sortedPosts = allPosts.sort(
-	(a, b) =>
-		new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-)
+	(a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+);
 
-export type Posts = typeof allPosts
+export type Posts = typeof allPosts;

@@ -43,7 +43,7 @@ Vite supports multiple frameworks out of the box:
 
 ## Key Features for Development
 
-###  1. Blazing Fast Server Start
+### 1. Blazing Fast Server Start
 
 Traditional bundlers process your entire application before serving it. Vite starts the server immediately and compiles files on demand. For large projects, this can mean the difference between waiting minutes versus milliseconds.
 
@@ -69,7 +69,7 @@ Vite provides first-class support for CSS:
 Import assets directly in your JavaScript/TypeScript files:
 
 ```javascript
-import logo from './assets/logo.png'
+import logo from "./assets/logo.png";
 ```
 
 Vite will:

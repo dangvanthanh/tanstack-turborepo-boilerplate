@@ -1,54 +1,54 @@
-import { For } from 'solid-js'
-import { css } from 'styled-system/css'
-import { flex } from 'styled-system/patterns'
+import { For } from "solid-js";
+import { css } from "styled-system/css";
+import { flex } from "styled-system/patterns";
 
 export default function Header() {
 	const navs = [
-		{ url: '/', name: 'Home' },
-		{ url: '/blog', name: 'Blog' },
-	]
+		{ url: "/", name: "Home" },
+		{ url: "/blog", name: "Blog" },
+	];
 
 	return (
 		<header
 			class={css({
 				borderBottomWidth: 1,
-				borderColor: 'neutral.200',
+				borderColor: "neutral.200",
 				py: 2,
 			})}
 		>
 			<div
 				class={css({
-					maxW: '3xl',
-					mx: 'auto',
+					maxW: "3xl",
+					mx: "auto",
 					px: { base: 4, md: 6, lg: 8 },
 				})}
 			>
-				<div class={flex({ justifyContent: 'space-between' })}>
+				<div class={flex({ justifyContent: "space-between" })}>
 					<a
 						href="/"
 						class={css({
-							bg: 'neutral.900',
-							color: 'white',
+							bg: "neutral.900",
+							color: "white",
 							px: 2,
 							py: 1.5,
-							rounded: 'sm',
-							fontSize: 'sm',
+							rounded: "sm",
+							fontSize: "sm",
 						})}
 					>
 						TST
 					</a>
-					<nav class={flex({ align: 'center', gap: 4 })}>
+					<nav class={flex({ align: "center", gap: 4 })}>
 						<For each={navs}>
 							{({ url, name }) => (
 								<a
 									href={url}
 									class={css({
-										color: 'neutral.500',
-										fontSize: 'xs',
+										color: "neutral.500",
+										fontSize: "xs",
 										//bg: 'neutral.100',
 										py: 1.5,
 										px: 3,
-										rounded: 'xs',
+										rounded: "xs",
 									})}
 								>
 									{name}
@@ -56,7 +56,7 @@ export default function Header() {
 							)}
 						</For>
 					</nav>
-					<div class={flex({ align: 'center' })}>
+					<div class={flex({ align: "center" })}>
 						<a
 							href="https://github.com/dangvanthanh/tanstack-turborepo-boilerplate"
 							target="_blank"
@@ -64,8 +64,8 @@ export default function Header() {
 							class={css({
 								px: 2,
 								py: 1.5,
-								rounded: 'sm',
-								fontSize: 'sm',
+								rounded: "sm",
+								fontSize: "sm",
 							})}
 						>
 							<svg
@@ -88,5 +88,5 @@ export default function Header() {
 				</div>
 			</div>
 		</header>
-	)
+	);
 }

@@ -1,21 +1,21 @@
-import { createFileRoute, Link } from '@tanstack/solid-router'
-import { css } from 'styled-system/css'
-import { formatDate, sortedPosts } from '~/lib'
-import { For } from 'solid-js'
+import { createFileRoute, Link } from "@tanstack/solid-router";
+import { css } from "styled-system/css";
+import { formatDate, sortedPosts } from "~/lib";
+import { For } from "solid-js";
 
-export const Route = createFileRoute('/blog')({
+export const Route = createFileRoute("/blog")({
 	loader: async () => sortedPosts,
 	component: BlogComponent,
-})
+});
 
 function BlogComponent() {
-	const posts = Route.useLoaderData()
+	const posts = Route.useLoaderData();
 
 	return (
 		<div
 			class={css({
-				maxW: '3xl',
-				mx: 'auto',
+				maxW: "3xl",
+				mx: "auto",
 				px: { base: 4, md: 6, lg: 8 },
 			})}
 		>
@@ -23,19 +23,19 @@ function BlogComponent() {
 				class={css({
 					py: 12,
 					borderBottomWidth: 1,
-					borderColor: 'neutral.200',
+					borderColor: "neutral.200",
 				})}
 			>
 				<h1
 					class={css({
-						fontSize: '4xl',
+						fontSize: "4xl",
 						fontWeight: 900,
-						lineHeight: 'tight',
+						lineHeight: "tight",
 					})}
 				>
 					From the blog
 				</h1>
-				<p class={css({ mt: 2, color: 'neutral.600' })}>
+				<p class={css({ mt: 2, color: "neutral.600" })}>
 					Discover expert tips to grow your business!
 				</p>
 			</div>
@@ -43,28 +43,26 @@ function BlogComponent() {
 				<For each={posts()}>
 					{(post) => (
 						<li>
-							<time class={css({ color: 'neutral.500' })}>
-								{formatDate(post.publishedAt)}
-							</time>
-							<h3 class={css({ fontSize: 'lg', fontWeight: 600, my: 2 })}>
+							<time class={css({ color: "neutral.500" })}>{formatDate(post.publishedAt)}</time>
+							<h3 class={css({ fontSize: "lg", fontWeight: 600, my: 2 })}>
 								<Link
 									to="/blog/$slug"
 									params={{
 										slug: post._meta.path,
 									}}
 									class={css({
-										color: 'neutral.700',
-										_hover: { color: 'neutral.500' },
+										color: "neutral.700",
+										_hover: { color: "neutral.500" },
 									})}
 								>
 									{post.title}
 								</Link>
 							</h3>
-							<div class={css({ color: 'neutral.700' })}>{post.summary}</div>
+							<div class={css({ color: "neutral.700" })}>{post.summary}</div>
 						</li>
 					)}
 				</For>
 			</ul>
 		</div>
-	)
+	);
 }

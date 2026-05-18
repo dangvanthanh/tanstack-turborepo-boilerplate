@@ -11,22 +11,20 @@ For years, React has been the default choice for pairing with TanStack Query for
 ## Why Consider SolidJS Over React?
 
 ### 1. Truly Reactive Without Virtual DOM
+
 SolidJS uses a compiled, fine-grained reactivity system that updates only what's necessary:
 
 ```jsx
 // SolidJS component - updates are pinpoint accurate
 function UserProfile({ userId }) {
-  const { data: user } = createResource(
-    () => userId,
-    fetchUser
-  );
-  
-  return (
-    <div>
-      <h1>{user()?.name}</h1>
-      <p>Email: {user()?.email}</p>
-    </div>
-  );
+	const { data: user } = createResource(() => userId, fetchUser);
+
+	return (
+		<div>
+			<h1>{user()?.name}</h1>
+			<p>Email: {user()?.email}</p>
+		</div>
+	);
 }
 ```
 
@@ -44,22 +42,20 @@ Solid components run once during initial render—no hook dependency arrays, no 
 ### Query Implementation
 
 ```jsx
-import { createQuery } from '@tanstack/solid-query';
+import { createQuery } from "@tanstack/solid-query";
 
 function Todos() {
-  const query = createQuery({
-    queryKey: () => ['todos'],
-    queryFn: fetchTodos
-  });
+	const query = createQuery({
+		queryKey: () => ["todos"],
+		queryFn: fetchTodos,
+	});
 
-  return (
-    <div>
-      {query.isLoading && <div>Loading...</div>}
-      <For each={query.data}>
-        {(todo) => <div>{todo.title}</div>}
-      </For>
-    </div>
-  );
+	return (
+		<div>
+			{query.isLoading && <div>Loading...</div>}
+			<For each={query.data}>{(todo) => <div>{todo.title}</div>}</For>
+		</div>
+	);
 }
 ```
 
@@ -74,19 +70,19 @@ function Todos() {
 
 ```jsx
 function StockTicker({ symbol }) {
-  const { data: price } = createQuery({
-    queryKey: () => ['stock', symbol],
-    queryFn: () => fetchStockPrice(symbol),
-    refetchInterval: 1000
-  });
+	const { data: price } = createQuery({
+		queryKey: () => ["stock", symbol],
+		queryFn: () => fetchStockPrice(symbol),
+		refetchInterval: 1000,
+	});
 
-  return (
-    <div>
-      <h2>{symbol}</h2>
-      <p>Price: ${price()}</p> 
-      {/* Only this number updates */}
-    </div>
-  );
+	return (
+		<div>
+			<h2>{symbol}</h2>
+			<p>Price: ${price()}</p>
+			{/* Only this number updates */}
+		</div>
+	);
 }
 ```
 

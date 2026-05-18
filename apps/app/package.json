@@ -8,9 +8,8 @@
 		"build": "vite build",
 		"serve": "vite preview",
 		"test": "vitest run",
-		"format": "biome format ./src --write",
-		"lint": "biome lint ./src",
-		"check": "biome check ./src",
+		"format": "oxfmt ./src",
+		"lint": "oxlint ./src",
 		"start": "node .output/server/index.mjs"
 	},
 	"dependencies": {
@@ -29,7 +28,6 @@
 		"@content-collections/markdown": "^0.1.4",
 		"@content-collections/vite": "^0.3.0",
 		"@pandacss/dev": "^1.9.1",
-		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"rehype-pretty-code": "^0.14.3",
 		"vite": "^8.0.8",

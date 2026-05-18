@@ -1,23 +1,23 @@
-import { createFileRoute, redirect } from '@tanstack/solid-router'
-import { allPosts } from 'content-collections'
-import { css } from 'styled-system/css'
-import { flex } from 'styled-system/patterns'
-import { seo } from '~/lib'
+import { createFileRoute, redirect } from "@tanstack/solid-router";
+import { allPosts } from "content-collections";
+import { css } from "styled-system/css";
+import { flex } from "styled-system/patterns";
+import { seo } from "~/lib";
 
-export const Route = createFileRoute('/blog_/$slug')({
+export const Route = createFileRoute("/blog_/$slug")({
 	component: PostComponent,
 	beforeLoad: () => ({
 		allPosts,
 	}),
 	loader: async ({ params, context: { allPosts } }) => {
-		const slug = params.slug
-		const post = allPosts.find((p) => p._meta.path === slug)
+		const slug = params.slug;
+		const post = allPosts.find((p) => p._meta.path === slug);
 
 		if (!post) {
-			throw redirect({ to: '/blog' })
+			throw redirect({ to: "/blog" });
 		}
 
-		return { post }
+		return { post };
 	},
 	head: ({ loaderData }) => ({
 		meta: loaderData
@@ -29,17 +29,17 @@ export const Route = createFileRoute('/blog_/$slug')({
 				]
 			: [],
 	}),
-})
+});
 
 function PostComponent() {
-	const data = Route.useLoaderData()
-	const post = () => data().post
+	const data = Route.useLoaderData();
+	const post = () => data().post;
 
 	return (
 		<div
 			class={css({
-				maxW: '3xl',
-				mx: 'auto',
+				maxW: "3xl",
+				mx: "auto",
 				px: { base: 4, md: 6, lg: 8 },
 			})}
 		>
@@ -47,9 +47,9 @@ function PostComponent() {
 				<a
 					href="/blog"
 					class={flex({
-						align: 'center',
-						color: 'neutral.500',
-						fontSize: 'sm',
+						align: "center",
+						color: "neutral.500",
+						fontSize: "sm",
 						gap: 1,
 					})}
 				>
@@ -62,19 +62,15 @@ function PostComponent() {
 						class={css({ w: 4, h: 4 })}
 					>
 						<title>Chevron Left</title>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M15.75 19.5 8.25 12l7.5-7.5"
-						/>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 					</svg>
 					<span>Back to Blog</span>
 				</a>
 				<h1
 					class={css({
-						fontSize: '3xl',
+						fontSize: "3xl",
 						fontWeight: 600,
-						lineHeight: 'tight',
+						lineHeight: "tight",
 						my: 2,
 					})}
 				>
@@ -82,45 +78,45 @@ function PostComponent() {
 				</h1>
 				<div
 					class={css({
-						'& > * + *': { mt: 4 },
-						'& img': {
-							w: 'full',
-							h: 'auto',
-							objectFit: 'contain',
+						"& > * + *": { mt: 4 },
+						"& img": {
+							w: "full",
+							h: "auto",
+							objectFit: "contain",
 						},
-						'& h2': {
-							fontSize: '2xl',
+						"& h2": {
+							fontSize: "2xl",
 							fontWeight: 600,
 						},
-						'& h3': {
-							fontSize: 'xl',
+						"& h3": {
+							fontSize: "xl",
 							fontWeight: 600,
 						},
-						'& ul': {
-							listStyle: 'disc',
+						"& ul": {
+							listStyle: "disc",
 							pl: 4,
 						},
-						'& ul > li + li': {
+						"& ul > li + li": {
 							mt: 2,
 						},
-						'& ol': {
-							listStyle: 'decimal',
+						"& ol": {
+							listStyle: "decimal",
 							pl: 4,
 						},
-						'& ol > li + li': {
+						"& ol > li + li": {
 							mt: 2,
 						},
-						'& pre': {
+						"& pre": {
 							padding: 4,
-							rounded: 'md',
+							rounded: "md",
 						},
-						'& code': {
-							fontSize: '14px',
+						"& code": {
+							fontSize: "14px",
 						},
 					})}
 					innerHTML={post().html}
 				/>
 			</div>
 		</div>
-	)
+	);
 }
